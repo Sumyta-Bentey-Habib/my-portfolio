@@ -6,6 +6,9 @@ import bgimg from "../assets/bg/bg.jpg";
 import AboutMe from "../components/AboutMe";
 import Skills from "../components/Skills";
 import Education from "../components/Education";
+import MyProject from "../components/MyProject";
+
+
 const HomeLayout = () => {
   return (
     <div>
@@ -23,6 +26,8 @@ const HomeLayout = () => {
       <AboutMe></AboutMe>
       <Skills></Skills>
       <Education></Education>
+      <MyProject></MyProject>
+      
     </div>
   );
 };

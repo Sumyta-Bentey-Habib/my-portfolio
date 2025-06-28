@@ -10,7 +10,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="sticky top-5 z-50 ">
+    <div className="fixed top-5 z-50 ">
       <div className="shadow navbar bg-base-300 rounded-3xl left-10 right-10 ">
       <div className="navbar-start">
         <div className="dropdown">
@@ -46,7 +46,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn bg-primary rounded-3xl right-3.5">Resume Link</a>
+        <a className="btn bg-primary right-3.5">Resume Link</a>
       </div>
     </div>
     </div>
