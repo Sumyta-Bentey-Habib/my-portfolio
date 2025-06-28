@@ -7,27 +7,32 @@ import AboutMe from "../components/AboutMe";
 import Skills from "../components/Skills";
 import Education from "../components/Education";
 import MyProject from "../components/MyProject";
-
+import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 
 const HomeLayout = () => {
   return (
-    <div>
-      <div
-       style={{
+    <div
+      style={{
         backgroundImage: `url(${bgimg})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         minHeight: "100vh",
-      }}>
-      <Navbar></Navbar>
-      <Hero></Hero>
-      </div>  
-      <AboutMe></AboutMe>
-      <Skills></Skills>
-      <Education></Education>
-      <MyProject></MyProject>
-      
+      }}
+    >
+      <Navbar />
+      <Hero />
+
+      {/* Sections with opaque backgrounds to hide bg image */}
+      <div style={{ backgroundColor: "#fff" }}>
+        <AboutMe />
+        <Skills />
+        <Education />
+        <MyProject />
+        <Contact />
+        <Footer/>
+      </div>
     </div>
   );
 };
