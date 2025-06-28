@@ -1,9 +1,11 @@
 import React from 'react';
 
+import Navbar from '../components/Navbar';
+
 const HomeLayout = () => {
     return (
         <div>
-            home layout
+           <Navbar></Navbar>
         </div>
     );
 };
