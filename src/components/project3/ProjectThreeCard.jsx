@@ -34,7 +34,7 @@ const ProjectThreeCard = () => {
                   <span className="inline-flex items-center gap-1 bg-blue-500 text-white px-3 py-1 rounded-full text-sm">
                     <SiTailwindcss /> Tailwind CSS
                   </span>
-                  \
+                  
                 </div>
                 </div>
 

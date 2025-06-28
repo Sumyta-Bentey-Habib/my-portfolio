@@ -1,7 +1,36 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Mail, MapPin, Phone, Linkedin, Github, MessageCircle } from "lucide-react";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  const form = useRef();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Add current time to hidden input
+    const currentTime = new Date().toLocaleString();
+    form.current.time.value = currentTime;
+
+    emailjs.sendForm(
+      'service_y6kwgwg', 
+      'template_0vzzlcw', 
+      form.current,
+      'H5QF8R2zKotbm_x1F' 
+    )
+    .then(
+      (result) => {
+        console.log(result.text);
+        alert('Message sent successfully!');
+        form.current.reset();
+      },
+      (error) => {
+        console.log(error.text);
+        alert('Something went wrong. Please try again.');
+      }
+    );
+  };
+
   return (
     <div className="w-full px-4 py-20 bg-base-200">
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
@@ -42,25 +71,30 @@ const Contact = () => {
         {/* Contact Form */}
         <div className="bg-base-100 p-8 rounded-lg shadow-md">
           <h2 className="text-3xl font-bold mb-6">Send Me a Message</h2>
-          <form className="flex flex-col gap-4">
+          <form ref={form} onSubmit={handleSubmit} className="flex flex-col gap-4">
             <input
               type="text"
+              name="name" 
               placeholder="Your Name"
               className="input input-bordered w-full"
               required
             />
             <input
               type="email"
+              name="user_email"
               placeholder="Your Email"
               className="input input-bordered w-full"
               required
             />
             <textarea
+              name="message" 
               className="textarea textarea-bordered w-full"
               rows="5"
               placeholder="Your Message"
               required
             ></textarea>
+            {/* hidden time input */}
+            <input type="hidden" name="time" />
             <button type="submit" className="btn btn-primary w-fit">Send Message</button>
           </form>
         </div>
