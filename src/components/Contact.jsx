@@ -36,7 +36,7 @@ const Contact = () => {
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
         {/* Basic Contact Info */}
         <div className="bg-base-100 p-8 rounded-lg shadow-md">
-          <h2 className="text-3xl font-bold mb-6">Contact Information</h2>
+          <h2 className="text-3xl font-bold mb-6">Reach Out & Collaborate</h2>
 
           <div className="flex items-center gap-3 mb-4">
             <MapPin size={20} className="text-primary" />
@@ -70,7 +70,7 @@ const Contact = () => {
 
         {/* Contact Form */}
         <div className="bg-base-100 p-8 rounded-lg shadow-md">
-          <h2 className="text-3xl font-bold mb-6">Send Me a Message</h2>
+          <h2 className="text-3xl font-bold mb-6">Your Message, My Inbox</h2>
           <form ref={form} onSubmit={handleSubmit} className="flex flex-col gap-4">
             <input
               type="text"

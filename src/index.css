@@ -21,3 +21,6 @@
 --color-base-300: #EDE9FE;      
 --color-accent: #6D28D9;       
 }
+html {
+  scroll-behavior: smooth;
+}

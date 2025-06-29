@@ -2,22 +2,23 @@ import React from 'react';
 import ProjectOneCard from "./project1/ProjectOneCard";
 import ProjectTwoCard from "./project2/ProjectTwoCard";
 import ProjectThreeCard from "./project3/ProjectThreeCard";
+import { FaProjectDiagram } from "react-icons/fa";
 
 const MyProject = () => {
-    return (
-        <div>
-            <section className="py-20 px-4 bg-base-200">
-      <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-12 text-primary">My Projects</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          <ProjectOneCard></ProjectOneCard>
-          <ProjectTwoCard></ProjectTwoCard>
-          <ProjectThreeCard></ProjectThreeCard>
+  return (
+    <section className="py-24 px-6 bg-base-200">
+      <div className="max-w-6xl mx-auto text-center">
+        <h2 className="text-5xl font-bold mb-12 text-primary flex items-center justify-center gap-4">
+          <FaProjectDiagram className="w-10 h-10" />Ideas Brought to Life
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <ProjectOneCard />
+          <ProjectTwoCard />
+          <ProjectThreeCard />
         </div>
       </div>
     </section>
-        </div>
-    );
+  );
 };
 
 export default MyProject;

@@ -2,7 +2,7 @@ import React from "react";
 
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import bgimg from "../assets/bg/bg.jpg";
+import bgimg from "../assets/bg/bg.png";
 import AboutMe from "../components/AboutMe";
 import Skills from "../components/Skills";
 import Education from "../components/Education";
@@ -26,12 +26,22 @@ const HomeLayout = () => {
 
       {/* Sections with opaque backgrounds to hide bg image */}
       <div style={{ backgroundColor: "#fff" }}>
-        <AboutMe />
-        <Skills />
-        <Education />
-        <MyProject />
-        <Contact />
-        <Footer/>
+        <section id="about">
+          <AboutMe />
+        </section>
+        <section id="skills">
+          <Skills />
+        </section>
+        <section id="education">
+          <Education />
+        </section>
+        <section id="projects">
+          <MyProject />
+        </section>
+        <section id="contact">
+          <Contact />
+        </section>
+        <Footer />
       </div>
     </div>
   );
