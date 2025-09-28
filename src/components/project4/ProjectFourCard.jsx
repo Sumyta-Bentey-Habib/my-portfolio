@@ -1,14 +1,15 @@
 import React from "react";
-import ProjectOneCarousel from "./ProjectOneCarousel";
 import { Github, ExternalLink, Info } from "lucide-react";
 import {
   SiReact,
   SiNodedotjs,
+  SiTailwindcss,
   SiExpress,
   SiMongodb,
-  SiTailwindcss,
   SiFirebase,
+  SiStripe,
 } from "react-icons/si";
+import ProjectFourCarousel from "./ProjectFourCarousel";
 
 const techStack = [
   { icon: <SiReact />, name: "React" },
@@ -17,27 +18,29 @@ const techStack = [
   { icon: <SiMongodb />, name: "MongoDB" },
   { icon: <SiTailwindcss />, name: "Tailwind CSS" },
   { icon: <SiFirebase />, name: "Firebase" },
+  { icon: <SiStripe />, name: "Stripe" },
 ];
 
-const ProjectOneCard = () => {
+const ProjectFourCard = () => {
   return (
     <div className="bg-white w-full max-w-2xl shadow-xl rounded-3xl border border-gray-200 hover:shadow-2xl transition mx-auto my-10">
       {/* Carousel */}
       <figure className="px-6 pt-6">
-        <ProjectOneCarousel />
+        <ProjectFourCarousel />
       </figure>
 
-      {/* Card content */}
+      {/* Card Content */}
       <div className="card-body items-center text-center px-8 pb-8">
-        <h2 className="text-3xl font-bold text-purple-700 mb-3">GoAthlete</h2>
+        <h2 className="text-3xl font-bold text-purple-700 mb-3">Studify</h2>
         <p className="mb-6 text-gray-800 leading-relaxed">
-          <strong>GoAthlete</strong> is a modern, user-friendly sports event
-          platform that empowers athletes to explore, create, book, and manage
-          events with ease. It features real-time booking, event management, and
-          secure authentication powered by Firebase.
+          <strong>Studify</strong> is a role-based educational platform built for
+          modern learning environments. Students can register and explore courses,
+          while admins manage user roles, oversee activity, and control access.  
+          It also includes a <strong>Stripe-powered payment demo</strong> for course
+          subscriptions, providing real-world payment integration experience.
         </p>
 
-        {/* Tech stack */}
+        {/* Tech Stack */}
         <div className="flex flex-wrap gap-3 mb-8 justify-center">
           {techStack.map((tech, idx) => (
             <span
@@ -52,7 +55,7 @@ const ProjectOneCard = () => {
         {/* Links */}
         <div className="flex flex-wrap justify-center gap-3">
           <a
-            href="https://goathlete.web.app/"
+            href="https://studify-749d1.web.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="btn bg-purple-600 hover:bg-purple-700 text-white rounded-full flex items-center gap-2 px-5"
@@ -60,7 +63,7 @@ const ProjectOneCard = () => {
             <ExternalLink size={18} /> Live Demo
           </a>
           <a
-            href="https://github.com/Sumyta-Bentey-Habib/GoAthlete-"
+            href="https://github.com/Sumyta-Bentey-Habib/Studify"
             target="_blank"
             rel="noopener noreferrer"
             className="btn border border-purple-600 text-purple-700 hover:bg-purple-50 rounded-full flex items-center gap-2 px-5"
@@ -68,7 +71,7 @@ const ProjectOneCard = () => {
             <Github size={18} /> Client
           </a>
           <a
-            href="https://github.com/Sumyta-Bentey-Habib/GoAthlete-server--site"
+            href="https://github.com/Sumyta-Bentey-Habib/Studify-Server"
             target="_blank"
             rel="noopener noreferrer"
             className="btn border border-purple-600 text-purple-700 hover:bg-purple-50 rounded-full flex items-center gap-2 px-5"
@@ -76,9 +79,9 @@ const ProjectOneCard = () => {
             <Github size={18} /> Server
           </a>
 
-          {/* Challenges modal trigger */}
+          {/* Modal Trigger */}
           <label
-            htmlFor="goathlete-modal"
+            htmlFor="studify-modal"
             className="btn bg-purple-400 hover:bg-purple-500 text-white rounded-full flex items-center gap-2 px-5"
           >
             <Info size={18} /> Challenges
@@ -87,31 +90,20 @@ const ProjectOneCard = () => {
       </div>
 
       {/* Challenges Modal */}
-      <input type="checkbox" id="goathlete-modal" className="modal-toggle" />
+      <input type="checkbox" id="studify-modal" className="modal-toggle" />
       <div className="modal" role="dialog">
         <div className="modal-box bg-white rounded-2xl max-w-lg">
           <h3 className="font-bold text-xl mb-3 text-purple-700">
             Challenges & Solutions
           </h3>
           <ul className="list-disc list-inside text-gray-800 space-y-2">
-            <li>
-              Designing a smooth user flow for booking and managing sports events.
-            </li>
-            <li>
-              Implementing secure authentication and role-based access with Firebase.
-            </li>
-            <li>
-              Optimizing backend APIs for event creation and user data handling.
-            </li>
-            <li>
-              Reliable deployment and integration across Firebase, Netlify, and Vercel.
-            </li>
+            <li>Implementing secure role-based user access for admins & students.</li>
+            <li>Designing a clean, user-friendly dashboard for management.</li>
+            <li>Integrating Stripe checkout for real-world payment simulation.</li>
+            <li>Deploying and connecting client/server seamlessly with Firebase & Vercel.</li>
           </ul>
           <div className="modal-action">
-            <label
-              htmlFor="goathlete-modal"
-              className="btn bg-purple-600 text-white rounded-full"
-            >
+            <label htmlFor="studify-modal" className="btn bg-purple-600 text-white rounded-full">
               Close
             </label>
           </div>
@@ -121,4 +113,4 @@ const ProjectOneCard = () => {
   );
 };
 
-export default ProjectOneCard;
+export default ProjectFourCard;

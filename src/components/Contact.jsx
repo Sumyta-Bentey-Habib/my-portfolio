@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { Mail, MapPin, Phone, Linkedin, Github, MessageCircle } from "lucide-react";
 import emailjs from '@emailjs/browser';
+import Swal from 'sweetalert2';
 
 const Contact = () => {
   const form = useRef();
@@ -21,12 +22,20 @@ const Contact = () => {
     .then(
       (result) => {
         console.log(result.text);
-        alert('Message sent successfully!');
+        Swal.fire({
+          icon: 'success',
+          title: 'Message Sent!',
+          text: 'Your message has been sent successfully.',
+        });
         form.current.reset();
       },
       (error) => {
         console.log(error.text);
-        alert('Something went wrong. Please try again.');
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong. Please try again.',
+        });
       }
     );
   };
@@ -59,7 +68,7 @@ const Contact = () => {
           </div>
 
           <div className="flex items-center gap-4 mt-6">
-            <a href="https://www.linkedin.com/in/sumytabenteyhabib2002/" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/in/sumytabenteyhabib/" target="_blank" rel="noreferrer">
               <Linkedin size={28} className="hover:text-primary transition" />
             </a>
             <a href="https://github.com/Sumyta-Bentey-Habib" target="_blank" rel="noreferrer">

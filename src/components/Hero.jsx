@@ -20,6 +20,7 @@ const Hero = () => {
             <Typewriter
               words={[
                 "MERN Stack Developer",
+                "Frontend Developer",
                 "React & Node.js Enthusiast",
                 "CSE Undergraduate Student",
                 "Tech Learner & Explorer",
@@ -54,7 +55,7 @@ const Hero = () => {
               <Mail className="w-5 h-5" />
             </a>
             <a
-              href="https://www.linkedin.com/in/sumytabenteyhabib2002/"
+              href="https://www.linkedin.com/in/sumytabenteyhabib/"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary"
