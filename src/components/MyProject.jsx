@@ -4,6 +4,8 @@ import ProjectTwoCard from "./project2/ProjectTwoCard";
 import ProjectThreeCard from "./project3/ProjectThreeCard";
 import { FaProjectDiagram } from "react-icons/fa";
 import ProjectFourCard from './project4/ProjectFourCard';
+import ProjectFiveCard from './project5/ProjectFiveCard';
+import ProjectSixCard from './project6/ProjectSixCard';
 
 const MyProject = () => {
   return (
@@ -13,11 +15,12 @@ const MyProject = () => {
           <FaProjectDiagram className="w-10 h-10" />Ideas Brought to Life
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <ProjectFiveCard/>
           <ProjectFourCard/>
+          <ProjectSixCard/>
           <ProjectOneCard />
           <ProjectTwoCard />
-  
-
+          <ProjectThreeCard />
         </div>
       </div>
     </section>

@@ -72,7 +72,7 @@ const CollapsibleSidebar = ({ children }) => {
         {/* Resume Button */}
         <div className="p-4">
           <a
-            href="https://drive.google.com/file/d/19m7aqTJvhOKWY7r_vu36K-LvFBUx7Gxm/view?usp=drive_link"
+            href="https://drive.google.com/file/d/1pkJyg2rYht5J7k6qZaUUrlVXACvIIGSg/view?usp=drive_link"
             target="_blank"
             className="btn btn-primary w-full"
           >

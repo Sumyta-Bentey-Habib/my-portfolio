@@ -33,12 +33,12 @@ const skills = [
   {
     name: "React.js",
     icon: <FaReact className="w-8 h-8 text-blue-500" />,
-    level: 90,
+    level: 70,
   },
   {
     name: "Node.js",
     icon: <FaNode className="w-8 h-8 text-green-900" />,
-    level: 85,
+    level: 70,
   },
   {
     name: "Tailwind CSS",
@@ -58,7 +58,7 @@ const skills = [
   {
     name: "Python",
     icon: <SiPython className="w-8 h-8 text-purple-900" />,
-    level: 75,
+    level: 50,
   },
   {
     name: "Netlify",
