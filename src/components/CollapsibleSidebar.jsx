@@ -115,7 +115,7 @@ const CollapsibleSidebar = ({ children }) => {
         {/* Resume Button */}
         <div className="p-4">
           <a
-            href="https://drive.google.com/file/d/15RvXW2E90-WR5q8fCKGRwL-omunO2hPr/view?usp=sharing"
+            href="https://drive.google.com/file/d/176RlhRwrlo0nE7c_mKOd8ebtKpCdIuLm/view?usp=sharing"
             target="_blank"
             className="btn bg-purple-600 hover:bg-purple-700 text-white w-full transition-all duration-300 transform hover:scale-105"
           >
