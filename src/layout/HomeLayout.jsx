@@ -4,18 +4,20 @@ import Hero from "../components/Hero";
 import bgimg from "../assets/bg/bg.png";
 import AboutMe from "../components/AboutMe";
 import Skills from "../components/Skills";
-import Education from "../components/Education";
+// import Education from "../components/Education";
 import MyProject from "../components/MyProject";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import CollapsibleSidebar from "../components/CollapsibleSidebar";
+// import Experience from "../components/Experience";
+import Timeline from "../components/Timeline";
 
 const HomeLayout = () => {
   return (
     <>
-     
-      <CollapsibleSidebar>
-       <Navbar></Navbar>
+   
+        <CollapsibleSidebar>
+        <Navbar></Navbar>
         <section
           style={{
             backgroundImage: `url(${bgimg})`,
@@ -35,8 +37,14 @@ const HomeLayout = () => {
           <section id="skills">
             <Skills />
           </section>
-          <section id="education">
+          {/* <section id="education">
             <Education />
+          </section> */}
+          {/* <section id="experience">
+            <Experience />
+          </section> */}
+          <section id="my-journey">
+            <Timeline></Timeline>
           </section>
           <section id="projects">
             <MyProject />
@@ -47,6 +55,8 @@ const HomeLayout = () => {
           <Footer />
         </div>
       </CollapsibleSidebar>
+      
+      
     </>
   );
 };

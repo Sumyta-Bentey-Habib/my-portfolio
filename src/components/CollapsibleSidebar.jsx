@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   HiMenu,
   HiHome,
@@ -10,56 +10,100 @@ import {
 } from "react-icons/hi";
 import Logo from "./Logo";
 
+
 const CollapsibleSidebar = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [activeLink, setActiveLink] = useState("Home");
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const links = [
     { name: "Home", href: "/", icon: <HiHome /> },
     { name: "About", href: "#about", icon: <HiUser /> },
     { name: "Skills", href: "#skills", icon: <HiCode /> },
-    { name: "Education", href: "#education", icon: <HiAcademicCap /> },
+    { name: "My Journey", href: "#my-journey", icon: <HiAcademicCap /> },
     { name: "Projects", href: "#projects", icon: <HiFolderOpen /> },
     { name: "Contact", href: "#contact", icon: <HiMail /> },
   ];
 
-  // Function to auto-close sidebar on small screens
-  const handleLinkClick = () => {
-    if (window.innerWidth < 768) {
-      setCollapsed(true);
-    }
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const handleLinkClick = (name) => {
+    setActiveLink(name);
+    if (isMobile) setMobileOpen(false);
   };
 
   return (
     <div className="flex">
+      {/* Overlay for mobile */}
+      {isMobile && mobileOpen && (
+        <div
+          className="fixed inset-0 bg-black/30 z-40"
+          onClick={() => setMobileOpen(false)}
+        />
+      )}
+
+      {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full bg-purple-100 shadow-xl flex flex-col justify-between transition-all duration-300
-          ${collapsed ? "w-20" : "w-64"}`}
+        className={`
+          fixed top-0 left-0 h-full bg-purple-50 shadow-xl flex flex-col justify-between z-50
+          transition-all duration-300 ease-in-out
+          ${isMobile ? "transform transition-transform duration-300" : ""}
+          ${
+            isMobile && mobileOpen
+              ? "translate-x-0"
+              : isMobile
+              ? "-translate-x-full"
+              : ""
+          }
+          ${!isMobile && collapsed ? "w-20" : "w-64"}
+        `}
       >
-        {/* Sidebar Header */}
+        {/* Header */}
         <div>
           <div className="flex items-center justify-between p-4">
-            {!collapsed && <Logo />}
+            {!collapsed && !isMobile && <Logo />}
             <button
-              onClick={() => setCollapsed(!collapsed)}
-              className="btn btn-sm btn-ghost"
+              onClick={() =>
+                isMobile ? setMobileOpen(!mobileOpen) : setCollapsed(!collapsed)
+              }
+              className="btn btn-ghost btn-sm"
             >
-              <HiMenu className="text-xl" />
+              <HiMenu className="text-xl text-purple-700 transition-transform duration-300 hover:rotate-90" />
             </button>
           </div>
 
-          {/* Sidebar Links */}
+          {/* Links */}
           <ul className="menu p-2">
             {links.map((link) => (
               <li key={link.name}>
                 <a
                   href={link.href}
-                  onClick={handleLinkClick} // Auto-close on small screens
-                  className="flex items-center gap-4 hover:text-primary relative group"
+                  onClick={() => handleLinkClick(link.name)}
+                  className={`
+                    flex items-center gap-4 relative group transition-all duration-300 px-3 py-2 rounded-md
+                    ${
+                      activeLink === link.name
+                        ? "text-purple-700 font-semibold bg-purple-100"
+                        : "text-gray-700 hover:text-purple-700 hover:bg-purple-50"
+                    }
+                  `}
                 >
-                  <span className="text-xl">{link.icon}</span>
-                  {!collapsed && <span>{link.name}</span>}
-                  {collapsed && (
-                    <span className="absolute left-20 bg-base-200 text-sm rounded px-2 py-1 shadow opacity-0 group-hover:opacity-100 transition">
+                  <span className="text-xl transition-transform duration-300 group-hover:scale-110 group-hover:text-purple-600">
+                    {link.icon}
+                  </span>
+                  {!collapsed && (!isMobile || mobileOpen) && (
+                    <span className="transition-colors duration-300">
+                      {link.name}
+                    </span>
+                  )}
+                  {collapsed && !isMobile && (
+                    <span className="absolute left-20 bg-base-100 text-sm rounded px-2 py-1 shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap">
                       {link.name}
                     </span>
                   )}
@@ -68,23 +112,23 @@ const CollapsibleSidebar = ({ children }) => {
             ))}
           </ul>
         </div>
-
         {/* Resume Button */}
         <div className="p-4">
           <a
-            href="https://drive.google.com/file/d/1pkJyg2rYht5J7k6qZaUUrlVXACvIIGSg/view?usp=drive_link"
+            href="https://drive.google.com/file/d/15RvXW2E90-WR5q8fCKGRwL-omunO2hPr/view?usp=sharing"
             target="_blank"
-            className="btn btn-primary w-full"
+            className="btn bg-purple-600 hover:bg-purple-700 text-white w-full transition-all duration-300 transform hover:scale-105"
           >
             {!collapsed ? "Resume Link" : "Resume"}
           </a>
         </div>
       </aside>
 
-      {/* Page Content */}
+      {/* Main Content */}
       <main
-        className={`flex-1 transition-all duration-300 p-6
-          ${collapsed ? "md:ml-20 ml-20" : "md:ml-64 ml-64"}`}
+        className={`flex-1 transition-all duration-300 ease-in-out p-6 ${
+          !isMobile ? (collapsed ? "md:ml-20 ml-20" : "md:ml-64 ml-20") : ""
+        }`}
       >
         {children}
       </main>
